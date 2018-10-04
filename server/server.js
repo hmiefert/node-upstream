@@ -12,13 +12,13 @@ app.post('/upload', (req, res) => {
 
     const targetFilePath = path.join(__dirname, 'uploads', 'upload.mp4');
     const targetFileStream = fs.createWriteStream(targetFilePath);
-    let chunkCounter = 0
-    let uploadSize = 0
+    let chunkCounter = 0;
+    let uploadSize = 0;
 
     req.on('data', (chunk) => {
-        console.log(`Received chunk #${chunkCounter++} with ${chunk.length.toString()} bytes.`)
+        console.log(`Received chunk #${chunkCounter++} with ${chunk.length.toString()} bytes.`);
         targetFileStream.write(chunk);
-        uploadSize += chunk.length
+        uploadSize += chunk.length;
     });
 
     req.on('end', () => {
