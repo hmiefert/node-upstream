@@ -8,7 +8,9 @@ app.set('port', process.env.PORT || 3000);
 app.set('host', process.env.HOST || 'localhost');
 
 app.post('/upload', (req, res) => {
-    console.log('Receiving upload request with headers: ' + JSON.stringify(req.headers, null, 2));
+
+    const headersJson = JSON.stringify(req.headers, null, 2)
+    console.log(`Receiving upload request with headers:\n${headersJson}\n`);
 
     const targetFilePath = path.join(__dirname, 'uploads', 'upload.mp4');
     const targetFileStream = fs.createWriteStream(targetFilePath);
@@ -22,7 +24,7 @@ app.post('/upload', (req, res) => {
     });
 
     req.on('end', () => {
-        console.log(`Upload finished. Received a total of ${uploadSize} bytes.`);
+        console.log(`\nUpload finished. Received a total of ${uploadSize} bytes.\nFile saved at: ${targetFilePath}.`);
         targetFileStream.close();
         res.json({message: 'Upload finished'});
     });
