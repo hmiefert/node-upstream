@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "busboy": "^0.2.14",
     "express": "^4.16.3"
   }
 }
