@@ -1,14 +1,14 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "upstream-server",
+  "version": "0.0.1",
+  "description": "Simple server application for receiving upload streams as Content-Type application/octet-stream and saving file to disk",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "hmiefert",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.16.3"
   }
